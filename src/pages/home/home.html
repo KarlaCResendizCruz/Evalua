@@ -1,0 +1,69 @@
+
+<div id="custom-overlay" [style.display]="splash ? 'flex': 'none'">
+  <div class="flb">
+    <div class="Aligner-item Aligner-item--top"></div>
+    <img src="assets/edunovac.png">
+    <div class="Aligner-item Aligner-item--bottom"></div>
+  </div>
+</div>
+
+<ion-header>
+  <ion-navbar color= "azulEdu">
+    <ion-title>
+      Bienvenido
+    </ion-title>
+  </ion-navbar>
+</ion-header> 
+
+<!--
+<ion-content padding>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12>
+          <p>Columna1</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col col-9>
+            <p>Columna1</p>
+          </ion-col>
+          <ion-col col-3>
+            <p>Columna2</p>
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+  </ion-content>
+-->
+
+<ion-content class="card-background-page">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12>
+            <ion-card>
+                <img src="assets/edunovac.png">
+                <div class="card-title">Innovación de tu cuerpo y sentidos.</div>
+            </ion-card>
+        </ion-col>
+      </ion-row>
+      <ion-row align-items-center>
+          <ion-col col-12>
+              <button ion-button color= "azulEdu" (click)="linkiniciose()">
+                Inicia sesión
+              </button>
+          </ion-col>
+          <ion-col col-12>
+              <button ion-button color= "azulEdu">
+                  <!--<ion-icon name="md-paper-plane"></ion-icon> -->
+                  &nbsp; Acceder con google 
+                </button>
+          </ion-col>
+          <ion-col col-12>
+              <button color= "naranjaEdu" ion-button clear (click)="linkregistro()">Registro</button>
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+  </ion-content>
+
+
+
+
