@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Relación perímetro de cintura-talla</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <form [formGroup]="datos" (ngSubmit)="calcular()" novalidate>
+    <ion-list>
+
+      <ion-item>
+        <ion-label floating>Ingrese la talla del alumno (cm):</ion-label>
+        <ion-input formControlName="talla" type="text" name="talla">
+        </ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="datos.get('talla').errors && datos.get('talla').dirty">
+        <p *ngIf="datos.get('talla').hasError('required')" class="error">*La talla es requerida.</p>
+        <p *ngIf="datos.get('talla').hasError('minlength')" class="error">*El minimo de caracteres permitidos es 3.</p>
+        <p *ngIf="datos.get('talla').hasError('maxlength')" class="error">*El maximo de caracteres permitidos es 6.</p>
+        <p *ngIf="datos.get('talla').hasError('pattern')" class="error">*Solo se admiten números del formato "45.05".</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Ingrese el perímetro de la cintura (cm):</ion-label>
+        <ion-input formControlName="cintura" type="text" name="cintura">
+        </ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="datos.get('cintura').errors && datos.get('cintura').dirty">
+        <p *ngIf="datos.get('cintura').hasError('required')" class="error">*La cintura es requerida.</p>
+        <p *ngIf="datos.get('cintura').hasError('minlength')" class="error">*El minimo de caracteres permitidos es 3.</p>
+        <p *ngIf="datos.get('cintura').hasError('maxlength')" class="error">*El maximo de caracteres permitidos es 6.</p>
+        <p *ngIf="datos.get('cintura').hasError('pattern')" class="error">*Solo se admiten números del formato "45.05".</p>
+      </ion-item>
+
+  
+    </ion-list>
+      <div class="padding">
+        <button ion-button block type="submit" [disabled]="!datos.valid">calcular</button>
+      </div>
+  </form>
+ 
+</ion-content>

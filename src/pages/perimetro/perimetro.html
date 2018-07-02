@@ -1,0 +1,71 @@
+<ion-header>
+    <ion-navbar color="primary">
+      <ion-title>Perímetro del brazo</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  
+  <ion-content padding>
+    <form [formGroup]="datos" (ngSubmit)="calcular()" novalidate>
+      <ion-list>
+        <ion-item>
+          <ion-label>Género:</ion-label>
+          <ion-select formControlName="genero" name="genero" okText="Aceptar" cancelText="Cancelar" (ionChange)="cambiogenero()">
+            <ion-option value="femenino">Femenino</ion-option>
+            <ion-option value="masculino">Masculino</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>Ingrese el perímetro del brazo del alumno (cm):</ion-label>
+          <ion-input formControlName="perimetro" type="text" name="perimetro">
+          </ion-input>
+        </ion-item>
+
+        <ion-item *ngIf="datos.get('perimetro').errors && datos.get('perimetro').dirty">
+            <p *ngIf="datos.get('perimetro').hasError('required')" class="error">*La talla es requerida.</p>
+            <p *ngIf="datos.get('perimetro').hasError('minlength')" class="error">*El minimo de caracteres permitidos es 3.</p>
+            <p *ngIf="datos.get('perimetro').hasError('maxlength')" class="error">*El maximo de caracteres permitidos es 6.</p>
+            <p *ngIf="datos.get('perimetro').hasError('pattern')" class="error">*Solo se admiten números del formato "45.05".</p>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Edad:</ion-label>
+          <ion-select formControlName="years" name="years" okText="Aceptar" cancelText="Cancelar">
+            <ion-option value="2">2 Años</ion-option>
+            <ion-option value="3">3 Años</ion-option>
+            <ion-option value="4">4 Años</ion-option>
+            <ion-option value="5">5 Años</ion-option>
+          </ion-select>
+          <ion-select formControlName="meses" name="meses" okText="Aceptar" cancelText="Cancelar" >
+            <ion-option value="0">0 Meses</ion-option>
+            <ion-option value="1">1 Meses</ion-option>
+            <ion-option value="2">2 Meses</ion-option>
+            <ion-option value="3">3 Meses</ion-option>
+            <ion-option value="4">4 Meses</ion-option>
+            <ion-option value="5">5 Meses</ion-option>
+            <ion-option value="6">6 Meses</ion-option>
+            <ion-option value="7">7 Meses</ion-option>
+            <ion-option value="8">8 Meses</ion-option>
+            <ion-option value="9">9 Meses</ion-option>
+            <ion-option value="10">10 Meses</ion-option>
+            <ion-option value="11">11 Meses</ion-option>
+          </ion-select>
+        </ion-item>
+      
+        <ion-item *ngIf="datos.get('years').errors && datos.get('years').dirty">
+          <p *ngIf="datos.get('years').hasError('required')" class="error">Los años son requeridos.</p>
+        </ion-item>
+        <ion-item *ngIf="datos.get('meses').errors && datos.get('meses').dirty">
+          <p *ngIf="datos.get('meses').hasError('required')" class="error">Los meses son requeridos.</p>
+        </ion-item>
+
+      </ion-list> 
+
+      <div class="padding">
+        <button ion-button block type="submit" [disabled]="!datos.valid">calcular</button>
+      </div>
+
+    </form>
+
+</ion-content>

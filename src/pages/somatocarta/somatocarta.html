@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Somatocarta</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="closeModal()"> X </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card>
+    <ion-card-header>
+      Endomorfismo
+    </ion-card-header>
+    <ion-card-content>
+      Resultado: {{ somatocarta.resul1 }}<br>
+      Interpretación: {{ somatocarta.interpretacion1}}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      Mesomorfismo
+    </ion-card-header>
+    <ion-card-content>
+      Resultado: {{ somatocarta.resul2 }}<br>
+      Interpretación: {{ somatocarta.interpretacion2}}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      Ectomorfismo
+    </ion-card-header>
+    <ion-card-content>
+      Resultado: {{ somatocarta.resul3 }}<br>
+      Interpretación: {{ somatocarta.interpretacion3}}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+      <ion-card-header>
+        Somatocarta
+        <button ion-button (click)="graficar()">
+          mostrar
+        </button>
+      </ion-card-header>
+      <ion-card-content>
+        <div id="series_chart_div"></div>
+      </ion-card-content>
+  </ion-card>
+
+    
+
+</ion-content>

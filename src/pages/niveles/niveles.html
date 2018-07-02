@@ -1,39 +1,37 @@
-<!--
-  Generated template for the NivelesPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>Niveles</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>Inicio</ion-title>
   </ion-navbar>
-
 </ion-header>
 
-
 <ion-content padding>
-  <ion-grid>
-    <ion-row align-items-center>
-      <ion-col col-6>
-              <img src="assets/Preescolar.png">
-              <button color= "naranjaEdu" ion-button clear (click)="linkpreescolar()">Preescolar</button>
-      </ion-col>
-      <ion-col col-6>
-          <img src="assets/Primaria.png">
-          <button color= "naranjaEdu" ion-button clear (click)="linkprimaria()">Primaria</button>
-      </ion-col>
-    </ion-row>
-    <ion-row align-items-center>
-        <ion-col col-6>
-            <img src="assets/Secundaria.png">
-            <button color= "naranjaEdu" ion-button clear (click)="linksecundaria()">Secundaria</button>
-        </ion-col>
-        <ion-col col-6>
-            <img src="assets/Preparatoria.png">
-            <button color= "naranjaEdu" ion-button clear (click)="linkpreparatoria()">Preparatoria</button>
-        </ion-col>
-      </ion-row>
-  </ion-grid>
+
+  <div padding-top>
+    <button ion-button icon-right block (click)="linkevaluaciones('Preescolar')">
+      <ion-icon name="md-happy"></ion-icon>
+      &nbsp; Preescolar
+    </button>
+  </div>
+
+  <div padding-top>
+    <button ion-button icon-right block (click)="linkevaluaciones('Primaria')">
+        <ion-icon name="ios-body"></ion-icon>
+        &nbsp; Primaria
+    </button>
+  </div>
+
+  <div padding-top>
+    <button ion-button icon-right block (click)="linkevaluaciones('Secundaria')">
+        <ion-icon name="md-man"></ion-icon>
+        &nbsp; Secundaria
+    </button>
+  </div>
+
+  <div padding-top>
+    <button ion-button icon-right block (click)="linkevaluaciones('Preparatoria')">
+        <ion-icon name="md-man"></ion-icon>
+        &nbsp; Preparatoria
+    </button>
+  </div>
+  
 </ion-content>

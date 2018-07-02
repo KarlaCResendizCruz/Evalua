@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Relación cintura-cadera</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <form [formGroup]="datos" (ngSubmit)="calcular()" novalidate>
+    <ion-list>
+
+      <ion-item>
+          <ion-label>Género:</ion-label>
+          <ion-select formControlName="genero" name="genero" okText="Aceptar" cancelText="Cancelar">
+            <ion-option value="femenino">Femenino</ion-option>
+            <ion-option value="masculino">Masculino</ion-option>
+          </ion-select>
+        </ion-item>
+
+      <ion-item>
+        <ion-label floating>Circunferencia de la cintura (cm):</ion-label>
+        <ion-input formControlName="CCINT" type="text" name="CCINT">
+        </ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="datos.get('CCINT').errors && datos.get('CCINT').dirty">
+        <p *ngIf="datos.get('CCINT').hasError('required')" class="error">*La circunferencia es requerida.</p>
+        <p *ngIf="datos.get('CCINT').hasError('minlength')" class="error">*El minimo de caracteres permitidos es 3.</p>
+        <p *ngIf="datos.get('CCINT').hasError('maxlength')" class="error">*El maximo de caracteres permitidos es 6.</p>
+        <p *ngIf="datos.get('CCINT').hasError('pattern')" class="error">*Solo se admiten números del formato "45.05".</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Circunferencia de la cadera (cm):</ion-label>
+        <ion-input formControlName="CCAD" type="text" name="CCAD">
+        </ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="datos.get('CCAD').errors && datos.get('CCAD').dirty">
+        <p *ngIf="datos.get('CCAD').hasError('required')" class="error">*La circunferencia es requerida.</p>
+        <p *ngIf="datos.get('CCAD').hasError('minlength')" class="error">*El minimo de caracteres permitidos es 3.</p>
+        <p *ngIf="datos.get('CCAD').hasError('maxlength')" class="error">*El maximo de caracteres permitidos es 6.</p>
+        <p *ngIf="datos.get('CCAD').hasError('pattern')" class="error">*Solo se admiten números del formato "45.05".</p>
+      </ion-item>
+
+  
+    </ion-list>
+      <div class="padding">
+        <button ion-button block type="submit" [disabled]="!datos.valid">calcular</button>
+      </div>
+  </form>
+ 
+</ion-content>

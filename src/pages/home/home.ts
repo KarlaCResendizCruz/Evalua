@@ -1,39 +1,24 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { RegistroPage } from '../registro/registro';
-import { IniciosePage } from '../iniciose/iniciose';
+import { NivelesPage } from '../niveles/niveles';
 
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
-}) 
+})
 export class HomePage {
 
-  splash = true;
-  tabBarElement: any;
-
   constructor(public navCtrl: NavController) {
-    this.tabBarElement = document.querySelector('.tabbar');
-
+    this.graficar();
   }
 
-  ionViewDidLoad() {
-    this.tabBarElement.style.display = 'none';
-    setTimeout(() => {
-      this.splash = false;
-      this.tabBarElement.style.display = 'flex';
-    }, 4000);
-
+  linkniveles(){
+    this.navCtrl.push(NivelesPage);
   }
 
-  linkregistro(){
-    this.navCtrl.push(RegistroPage);
-  }
+  graficar(){
 
-  linkiniciose(){
-    this.navCtrl.push(IniciosePage);
   }
-
 
 }

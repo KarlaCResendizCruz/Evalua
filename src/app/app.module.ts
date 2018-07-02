@@ -1,79 +1,84 @@
-import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-import { MyApp } from './app.component'; 
+import { ErrorHandler, NgModule } from '@angular/core';
+import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar';
 
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
+import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { TabsPage } from '../pages/tabs/tabs';
-import { RegistroPage } from '../pages/registro/registro';
-import { IniciosePage } from '../pages/iniciose/iniciose';
-import { OlvidastecontPage } from '../pages/olvidastecont/olvidastecont';
 import { NivelesPage } from '../pages/niveles/niveles';
-import { PreescolarPage } from '../pages/preescolar/preescolar';
-import { PrimariaPage } from '../pages/primaria/primaria';
-import { SecundariaPage } from '../pages/secundaria/secundaria';
-import { PreparatoriaPage } from '../pages/preparatoria/preparatoria';
+import { EvaluacionesPage } from '../pages/evaluaciones/evaluaciones';
+import { ImcPage } from '../pages/imc/imc';
+import { TallaPage } from '../pages/talla/talla';
+import { PesoPage } from '../pages/peso/peso';
 import { CrecimientoPage } from '../pages/crecimiento/crecimiento';
 import { AntropometriaPage } from '../pages/antropometria/antropometria';
-import { HabilidadesbasicasPage } from '../pages/habilidadesbasicas/habilidadesbasicas';
-import { HabilidadescoordinativasPage } from '../pages/habilidadescoordinativas/habilidadescoordinativas';
-import { HabilidadescoondicionantesPage } from '../pages/habilidadescoondicionantes/habilidadescoondicionantes';
+import { PerimetroPage } from '../pages/perimetro/perimetro';
+import { CinturaPage } from '../pages/cintura/cintura';
+import { AmbPage } from '../pages/amb/amb';
+import { CcaderaPage } from '../pages/ccadera/ccadera';
+import { MasaPage } from '../pages/masa/masa';
+import { SomatotipoPage } from '../pages/somatotipo/somatotipo';
 
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import { HttpClientModule } from '@angular/common/http';
+import { SizeProvider } from '../providers/size/size';
+import { WeightProvider } from '../providers/weight/weight';
+import { ImcProvider } from '../providers/imc/imc';
+import { PerimeterProvider } from '../providers/perimeter/perimeter';
+import { AmbProvider } from '../providers/amb/amb';
+
 
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
-    ContactPage,
     HomePage,
-    TabsPage,
-    RegistroPage,
-    IniciosePage,
-    OlvidastecontPage,
     NivelesPage,
-    PreescolarPage,
-    PrimariaPage,
-    SecundariaPage,
-    PreparatoriaPage,
+    EvaluacionesPage,
     CrecimientoPage,
     AntropometriaPage,
-    HabilidadesbasicasPage,
-    HabilidadescoordinativasPage,
-    HabilidadescoondicionantesPage
+    ImcPage,
+    TallaPage,
+    PesoPage,
+    PerimetroPage,
+    CinturaPage,
+    AmbPage,
+    CcaderaPage,
+    MasaPage,
+    SomatotipoPage,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp)
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
-    ContactPage,
     HomePage,
-    TabsPage,
-    RegistroPage,
-    IniciosePage,
-    OlvidastecontPage,
     NivelesPage,
-    PreescolarPage,
-    PrimariaPage,
-    SecundariaPage,
-    PreparatoriaPage,
+    EvaluacionesPage,
     CrecimientoPage,
     AntropometriaPage,
-    HabilidadesbasicasPage,
-    HabilidadescoordinativasPage,
-    HabilidadescoondicionantesPage
+    ImcPage,
+    TallaPage,
+    PesoPage,
+    PerimetroPage,
+    CinturaPage,
+    AmbPage,
+    CcaderaPage,
+    MasaPage,
+    SomatotipoPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    SizeProvider,
+    WeightProvider,
+    ImcProvider,
+    PerimeterProvider,
+    AmbProvider,
   ]
 })
 export class AppModule {}

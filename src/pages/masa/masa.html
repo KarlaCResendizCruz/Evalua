@@ -1,0 +1,105 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>% de Masa Grasa</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <form [formGroup]="datos" (ngSubmit)="calcular()" novalidate>
+    <ion-list>
+      <ion-item>
+        <ion-label>Género:</ion-label>
+        <ion-select formControlName="genero" name="genero" okText="Aceptar" cancelText="Cancelar">
+          <ion-option value="femenino">Femenino</ion-option>
+          <ion-option value="masculino">Masculino</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+          <ion-label floating>Pliegue de triceps:</ion-label>
+          <ion-input formControlName="ptriceps" type="text" name="ptriceps">
+          </ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="datos.get('ptriceps').errors && datos.get('ptriceps').dirty">
+          <p *ngIf="datos.get('ptriceps').hasError('required')" class="error">*La talla es requerida.</p>
+          <p *ngIf="datos.get('ptriceps').hasError('minlength')" class="error">*El minimo de caracteres permitidos es 3.</p>
+          <p *ngIf="datos.get('ptriceps').hasError('maxlength')" class="error">*El maximo de caracteres permitidos es 6.</p>
+          <p *ngIf="datos.get('ptriceps').hasError('pattern')" class="error">*Solo se admiten números del formato "45.05".</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Pliegue del muslo:</ion-label>
+        <ion-input formControlName="pmuslo" type="text" name="pmuslo">
+        </ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="datos.get('pmuslo').errors && datos.get('pmuslo').dirty">
+        <p *ngIf="datos.get('pmuslo').hasError('required')" class="error">*La talla es requerida.</p>
+        <p *ngIf="datos.get('pmuslo').hasError('minlength')" class="error">*El minimo de caracteres permitidos es 3.</p>
+        <p *ngIf="datos.get('pmuslo').hasError('maxlength')" class="error">*El maximo de caracteres permitidos es 6.</p>
+        <p *ngIf="datos.get('pmuslo').hasError('pattern')" class="error">*Solo se admiten números del formato "45.05".</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Pliegue suprailiaco:</ion-label>
+        <ion-input formControlName="psuprailiaco" type="text" name="psuprailiaco">
+        </ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="datos.get('psuprailiaco').errors && datos.get('psuprailiaco').dirty">
+        <p *ngIf="datos.get('psuprailiaco').hasError('required')" class="error">*La talla es requerida.</p>
+        <p *ngIf="datos.get('psuprailiaco').hasError('minlength')" class="error">*El minimo de caracteres permitidos es 3.</p>
+        <p *ngIf="datos.get('psuprailiaco').hasError('maxlength')" class="error">*El maximo de caracteres permitidos es 6.</p>
+        <p *ngIf="datos.get('psuprailiaco').hasError('pattern')" class="error">*Solo se admiten números del formato "45.05".</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Pliegue del torax:</ion-label>
+        <ion-input formControlName="ptorax" type="text" name="ptorax">
+        </ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="datos.get('ptorax').errors && datos.get('ptorax').dirty">
+        <p *ngIf="datos.get('ptorax').hasError('required')" class="error">*La talla es requerida.</p>
+        <p *ngIf="datos.get('ptorax').hasError('minlength')" class="error">*El minimo de caracteres permitidos es 3.</p>
+        <p *ngIf="datos.get('ptorax').hasError('maxlength')" class="error">*El maximo de caracteres permitidos es 6.</p>
+        <p *ngIf="datos.get('ptorax').hasError('pattern')" class="error">*Solo se admiten números del formato "45.05".</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Pliegue del abdomen:</ion-label>
+        <ion-input formControlName="pabdomen" type="text" name="pabdomen">
+        </ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="datos.get('pabdomen').errors && datos.get('pabdomen').dirty">
+        <p *ngIf="datos.get('pabdomen').hasError('required')" class="error">*La talla es requerida.</p>
+        <p *ngIf="datos.get('pabdomen').hasError('minlength')" class="error">*El minimo de caracteres permitidos es 3.</p>
+        <p *ngIf="datos.get('pabdomen').hasError('maxlength')" class="error">*El maximo de caracteres permitidos es 6.</p>
+        <p *ngIf="datos.get('pabdomen').hasError('pattern')" class="error">*Solo se admiten números del formato "45.05".</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Edad:</ion-label>
+        <ion-select formControlName="years" name="years" okText="Aceptar" cancelText="Cancelar">
+          <ion-option value="9">9 Años</ion-option>
+          <ion-option value="3">3 Años</ion-option>
+          <ion-option value="4">4 Años</ion-option>
+          <ion-option value="5">5 Años</ion-option>
+        </ion-select>
+      </ion-item>
+    
+      <ion-item *ngIf="datos.get('years').errors && datos.get('years').dirty">
+        <p *ngIf="datos.get('years').hasError('required')" class="error">Los años son requeridos.</p>
+      </ion-item>
+    </ion-list> 
+
+    <div class="padding">
+      <button ion-button block type="submit" [disabled]="!datos.valid">calcular</button>
+    </div>
+
+  </form>
+
+</ion-content>

@@ -1,18 +1,163 @@
-<!--
-  Generated template for the AntropometriaPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>Antropometria</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>Antropometría</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
 
+  <div text-center>
+    <h5>Evaluaciónes de Antropometría <br> Nivel: {{nivel}}</h5>
+  </div>
+
+  <!-- Nivel Preescolar -->
+  <div  padding-top *ngIf="eneable_preescolar">
+    <div padding>
+      <ion-segment [(ngModel)]="nivel_preescolar">
+        <ion-segment-button value="preescolar1">
+          ( 3 - 5 años)
+        </ion-segment-button>
+        <ion-segment-button value="preescolar2">
+          ( 5 - 6 años)
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+    
+    <div [ngSwitch]="nivel_preescolar">
+      <ion-list *ngSwitchCase="'preescolar1'">
+        <ion-item>
+          <!-- Nivel Preescolar de 3 a 5 años -->
+          <div padding-top>
+            <button ion-button icon-right block (click)="linkperimetro()">
+                &nbsp; Perímetro del brazo
+            </button>
+          </div>
+
+          <div padding-top>
+            <button ion-button icon-right block (click)="linkimc()">
+              &nbsp; Índice de masa corporal
+            </button>
+          </div>
+
+        </ion-item>
+      </ion-list>
+    
+      <ion-list *ngSwitchCase="'preescolar2'">
+        <ion-item>
+          <!-- Nivel Preescolar de 5 a 6 años -->
+          <div padding-top>
+            <button ion-button icon-right block (click)="linkimc()">
+              &nbsp; Índice de masa corporal
+            </button>
+          </div>
+
+          <div padding-top>
+            <button ion-button icon-right block (click)="linkcintura()">
+                &nbsp; Relación perímetro de cintura-talla
+            </button>
+          </div>
+        
+          <div padding-top>
+            <button ion-button icon-right block (click)="linkamb()">
+                &nbsp; Área muscular del brazo
+            </button>
+          </div>
+        
+          <div padding-top>
+            <button ion-button icon-right block (click)="linkccadera()">
+                &nbsp; Índice cintura-cadera
+            </button>
+          </div>
+
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
+
+  <div  padding-top *ngIf="eneable_alllevel">
+
+    <div padding-top>
+      <button ion-button icon-right block (click)="linkimc()">
+        &nbsp; Índice de masa corporal
+      </button>
+    </div>
+    
+    <div padding-top>
+      <button ion-button icon-right block (click)="linkcintura()">
+        &nbsp; Relación perímetro de cintura-talla
+      </button>
+    </div>
+    
+    <div padding-top>
+      <button ion-button icon-right block (click)="linkamb()">
+        &nbsp; Área muscular del brazo
+      </button>
+    </div>
+  
+    <div padding-top>
+      <button ion-button icon-right block (click)="linkccadera()">
+        &nbsp; Índice cintura-cadera
+      </button>
+    </div>
+    
+    <div padding-top>
+      <button ion-button icon-right block (click)="linkmasa()">
+        &nbsp; % Masa Grasa
+      </button>
+    </div>
+
+    <div padding-top *ngIf="eneable_preparatoria">
+      <button ion-button icon-right block (click)="linksomatotipo()">
+          &nbsp; Somatotipo
+      </button>
+    </div>
+
+  </div>
+
+
+<!-- 
+  <div padding-top>
+    <button ion-button icon-right block (click)="linkimc()">
+      &nbsp; Índice de masa corporal
+    </button>
+  </div>
+
+  <div padding-top>
+    <button ion-button icon-right block (click)="linkperimetro()">
+        &nbsp; Perímetro del brazo
+    </button>
+  </div>
+
+  <div padding-top>
+    <button ion-button icon-right block (click)="linkcintura()">
+        &nbsp; Relación perímetro de cintura-talla
+    </button>
+  </div>
+
+  <div padding-top>
+    <button ion-button icon-right block (click)="linkamb()">
+        &nbsp; Área muscular del brazo
+    </button>
+  </div>
+
+  <div padding-top>
+    <button ion-button icon-right block (click)="linkccadera()">
+        &nbsp; Índice cintura-cadera
+    </button>
+  </div>
+
+  <div padding-top>
+    <button ion-button icon-right block (click)="linkmasa()">
+        &nbsp; % Masa Grasa
+    </button>
+  </div>
+
+  <div padding-top>
+    <button ion-button icon-right block (click)="linksomatotipo()">
+        &nbsp; Somatotipo
+    </button>
+  </div> -->
+
+    
 </ion-content>
