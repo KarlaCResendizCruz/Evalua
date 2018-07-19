@@ -1,74 +1,74 @@
 <ion-header>
-    <ion-navbar color="primary">
-      <ion-title>Interpretación del Peso</ion-title>
-    </ion-navbar>
-  </ion-header>
+  <ion-navbar color="primary">
+      <h6 class="titulos">Evaluación: Peso<br> Nivel: {{nivel}}</h6>
+  </ion-navbar>
+</ion-header>
   
   
-  <ion-content padding>
+<ion-content padding>
+  <div text-center padding-top>
+      <strong><h5>Datos del Alumno</h5></strong>
+  </div>
 
-    <div text-center>
-        <h5>Interpretación de Talla <br> Nivel: {{nivel}}</h5>
+  <form [formGroup]="datos" (ngSubmit)="calcular()" novalidate>
+    <ion-list no-lines>
+
+      <ion-item>
+        <ion-label>Género:</ion-label>
+        <ion-select formControlName="genero" name="genero" okText="Aceptar" cancelText="Cancelar" (ionChange)="cambiogenero()">
+          <ion-option value="femenino">Femenino</ion-option>
+          <ion-option value="masculino">Masculino</ion-option>
+        </ion-select>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label>Edad:</ion-label>
+        <ion-select formControlName="years" name="years" okText="Aceptar" cancelText="Cancelar">
+          <ion-option *ngFor="let edad of edades" [value]="edad">{{edad}} Años</ion-option>
+        </ion-select>
+        <ion-select formControlName="meses" name="meses" okText="Aceptar" cancelText="Cancelar" >
+          <ion-option value="0">0 Meses</ion-option>
+          <ion-option value="1">1 Meses</ion-option>
+          <ion-option value="2">2 Meses</ion-option>
+          <ion-option value="3">3 Meses</ion-option>
+          <ion-option value="4">4 Meses</ion-option>
+          <ion-option value="5">5 Meses</ion-option>
+          <ion-option value="6">6 Meses</ion-option>
+          <ion-option value="7">7 Meses</ion-option>
+          <ion-option value="8">8 Meses</ion-option>
+          <ion-option value="9">9 Meses</ion-option>
+          <ion-option value="10">10 Meses</ion-option>
+          <ion-option value="11">11 Meses</ion-option>
+          <ion-option value="12">12 Meses</ion-option>
+        </ion-select>
+      </ion-item>
+      
+      <ion-item *ngIf="datos.get('years').errors && datos.get('years').dirty">
+        <p *ngIf="datos.get('years').hasError('required')" class="error">Los años son requeridos.</p>
+      </ion-item>
+      <ion-item *ngIf="datos.get('meses').errors && datos.get('meses').dirty">
+        <p *ngIf="datos.get('meses').hasError('required')" class="error">Los meses son requeridos.</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Peso (Kg) <ion-icon (click)="peso()" color="primary"  name="help-circle"></ion-icon> : </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-input formControlName="peso" type="text" name="peso" placeholder="Ingrese el peso "></ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="datos.get('peso').errors && datos.get('peso').dirty">
+          <p *ngIf="datos.get('peso').hasError('required')" class="error">*La talla es requerida.</p>
+          <p *ngIf="datos.get('peso').hasError('minlength')" class="error">*El minimo de caracteres permitidos es 3.</p>
+          <p *ngIf="datos.get('peso').hasError('maxlength')" class="error">*El maximo de caracteres permitidos es 6.</p>
+          <p *ngIf="datos.get('peso').hasError('pattern')" class="error">*Solo se admiten números del formato "45.05".</p>
+      </ion-item>
+    </ion-list> 
+
+    <div class="padding">
+      <button ion-button block type="submit" [disabled]="!datos.valid">Calcular</button>
     </div>
 
-    <form [formGroup]="datos" (ngSubmit)="calcular()" novalidate>
-      <ion-list>
-        <ion-item>
-          <ion-label>Género:</ion-label>
-          <ion-select formControlName="genero" name="genero" okText="Aceptar" cancelText="Cancelar" (ionChange)="cambiogenero()">
-            <ion-option value="femenino">Femenino</ion-option>
-            <ion-option value="masculino">Masculino</ion-option>
-          </ion-select>
-        </ion-item>
-
-        <ion-item>
-          <ion-label floating>Ingrese el peso del alumno (kg):</ion-label>
-          <ion-input formControlName="peso" type="text" name="peso">
-          </ion-input>
-        </ion-item>
-
-        <ion-item *ngIf="datos.get('peso').errors && datos.get('peso').dirty">
-            <p *ngIf="datos.get('peso').hasError('required')" class="error">*La talla es requerida.</p>
-            <p *ngIf="datos.get('peso').hasError('minlength')" class="error">*El minimo de caracteres permitidos es 3.</p>
-            <p *ngIf="datos.get('peso').hasError('maxlength')" class="error">*El maximo de caracteres permitidos es 6.</p>
-            <p *ngIf="datos.get('peso').hasError('pattern')" class="error">*Solo se admiten números del formato "45.05".</p>
-        </ion-item>
-
-        <ion-item>
-          <ion-label>Edad:</ion-label>
-          <ion-select formControlName="years" name="years" okText="Aceptar" cancelText="Cancelar">
-            <ion-option *ngFor="let edad of edades" [value]="edad">{{edad}}</ion-option>
-          </ion-select>
-          <ion-select formControlName="meses" name="meses" okText="Aceptar" cancelText="Cancelar" >
-            <ion-option value="0">0 Meses</ion-option>
-            <ion-option value="1">1 Meses</ion-option>
-            <ion-option value="2">2 Meses</ion-option>
-            <ion-option value="3">3 Meses</ion-option>
-            <ion-option value="4">4 Meses</ion-option>
-            <ion-option value="5">5 Meses</ion-option>
-            <ion-option value="6">6 Meses</ion-option>
-            <ion-option value="7">7 Meses</ion-option>
-            <ion-option value="8">8 Meses</ion-option>
-            <ion-option value="9">9 Meses</ion-option>
-            <ion-option value="10">10 Meses</ion-option>
-            <ion-option value="11">11 Meses</ion-option>
-            <ion-option value="12">12 Meses</ion-option>
-          </ion-select>
-        </ion-item>
-      
-        <ion-item *ngIf="datos.get('years').errors && datos.get('years').dirty">
-          <p *ngIf="datos.get('years').hasError('required')" class="error">Los años son requeridos.</p>
-        </ion-item>
-        <ion-item *ngIf="datos.get('meses').errors && datos.get('meses').dirty">
-          <p *ngIf="datos.get('meses').hasError('required')" class="error">Los meses son requeridos.</p>
-        </ion-item>
-
-      </ion-list> 
-
-      <div class="padding">
-        <button ion-button block type="submit" [disabled]="!datos.valid">calcular</button>
-      </div>
-
-    </form>
+  </form>
 
 </ion-content>

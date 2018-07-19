@@ -1,26 +1,33 @@
 <ion-header>
   <ion-navbar color="primary">
-    <ion-title>Relación cintura-cadera</ion-title>
+    <h6 class="titulos" *ngIf="eneable_preescolar">Evaluación: Relación Cintura-Cadera <br> Nivel: Preescolar</h6>
+    <h6 class="titulos" *ngIf="eneable_alllevel">Evaluación: Relación Cintura-Cadera <br> Nivel: {{nivel}}</h6>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
+
+  <div text-center padding-top>
+    <strong><h5>Datos del Alumno</h5></strong>
+  </div>
+
   <form [formGroup]="datos" (ngSubmit)="calcular()" novalidate>
-    <ion-list>
+    <ion-list no-lines>
 
       <ion-item>
-          <ion-label>Género:</ion-label>
-          <ion-select formControlName="genero" name="genero" okText="Aceptar" cancelText="Cancelar">
-            <ion-option value="femenino">Femenino</ion-option>
-            <ion-option value="masculino">Masculino</ion-option>
-          </ion-select>
-        </ion-item>
+        <ion-label>Género:</ion-label>
+        <ion-select formControlName="genero" name="genero" okText="Aceptar" cancelText="Cancelar">
+          <ion-option value="femenino">Femenino</ion-option>
+          <ion-option value="masculino">Masculino</ion-option>
+        </ion-select>
+      </ion-item>
 
       <ion-item>
-        <ion-label floating>Circunferencia de la cintura (cm):</ion-label>
-        <ion-input formControlName="CCINT" type="text" name="CCINT">
-        </ion-input>
+          <ion-label>Circunferencia de la cintura (cm) <ion-icon (click)="ccintura()" color="primary"  name="help-circle"></ion-icon> : </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-input formControlName="CCINT" type="text" name="CCINT" placeholder="Ingrese la circunferencia"></ion-input>
       </ion-item>
 
       <ion-item *ngIf="datos.get('CCINT').errors && datos.get('CCINT').dirty">
@@ -31,9 +38,10 @@
       </ion-item>
 
       <ion-item>
-        <ion-label floating>Circunferencia de la cadera (cm):</ion-label>
-        <ion-input formControlName="CCAD" type="text" name="CCAD">
-        </ion-input>
+        <ion-label>Circunferencia de la cadera (cm) <ion-icon (click)="ccadera()" color="primary"  name="help-circle"></ion-icon> : </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-input formControlName="CCAD" type="text" name="CCAD" placeholder="Ingrese la circunferencia"></ion-input>
       </ion-item>
 
       <ion-item *ngIf="datos.get('CCAD').errors && datos.get('CCAD').dirty">

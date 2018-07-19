@@ -1,0 +1,84 @@
+<ion-header>
+    <ion-navbar color="primary">
+      <h6 class="titulos"> Nivel: {{nivel}}</h6>
+    </ion-navbar>
+  </ion-header>
+    
+<ion-content padding>
+
+<ion-card>
+    <ion-card-header class="cardheader">
+        Evaluación: Lanzamiento de Pelota
+    </ion-card-header>
+    <ion-card-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-2></ion-col>
+      <ion-col col-8><img style="width:100%;" src="assets/imgs/lanzamiento_pelota/lanzamiento3.png"/></ion-col>
+      <ion-col col-2></ion-col>
+    </ion-row>
+  </ion-grid>
+    
+  <div text-justify>
+    <strong>Objetivo:</strong> Observar el correcto lanzamiento de pelota.<br> <br>
+    <strong>Evaluación <ion-icon (click)="protocolo()" color="primary"  name="eye"></ion-icon></strong><br><br>
+    <strong>Indicaciones:</strong> De acuerdo a la siguiente rúbrica, interprete el desempeño del alumno.<br>
+    <table radio-group [(ngModel)]="rubrica">
+      <tr>
+        <th>Rúbrica</th>
+        <th>#</th>
+      </tr>
+      <tr>
+        <td style="width:95%">
+          El tronco no realiza rotación lateral de hombro y el brazo lanzador no se lleva hacia atrás.
+          <br>Consulte Figura 1 de la Evaluación
+          <br>Importante: Brazo delante sin llevar la pelota atrás.                              
+        </td>
+        <td style="width:5%">
+          <ion-radio value="1"></ion-radio>
+        </td>
+      </tr>
+      <tr>
+        <td style="width:95%">
+          Realiza poco movimiento de codo y existe rotación externa de la articulación 
+          <br>Consulte Figura 2 de la Evaluación
+          <br>Importante: Ligero armado del brazo, la pelota sigue sin atrás.                          
+        </td>
+        <td style="width:5%">
+          <ion-radio value="2"></ion-radio>
+        </td>
+      </tr>
+      <tr>
+        <td style="width:95%">
+          Hay armado del brazo y el objeto se lleva hasta detrás de la cabeza.
+          <br>Consulte Figura 3 de la Evaluación
+          <br>Importante: La pelota se lleva atrás pero el movimiento no es coordinado entre brazos y piernas. (Ejemplo: descoordinación pierna adelantada con el brazo ejecutor).             
+        </td>
+        <td style="width:5%">
+          <ion-radio value="3"></ion-radio>
+        </td>
+      </tr>
+      <tr>
+      <td style="width:95%">
+          Coordina un movimiento fluido desde las pienas y el tronco hasta la muñeca del brazo contrario a la pierna adelantada.
+          <br>Consulte Figura 4 de la Evaluación
+          <br>Importante: Pelota llevada atrás, coordinación tronco y pierna contraria adelantada.          
+        </td>
+        <td style="width:5%">
+          <ion-radio value="4"></ion-radio>
+        </td>
+      </tr>
+    </table>
+    <div padding-top>
+      <button ion-button icon-right block (click)="calificar_rubrica()">
+        &nbsp; Evaluar
+      </button>
+    </div>
+
+
+  </div> 
+  </ion-card-content>
+</ion-card>
+
+</ion-content>
+    

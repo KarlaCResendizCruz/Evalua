@@ -1,0 +1,103 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <h6 class="titulos">Habilidades Coordinativas <br> Nivel: {{nivel}}</h6>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <!-- Nivel Preescolar -->
+  <div  padding-top *ngIf="enable_preescolar">
+    <div padding>
+      <ion-segment [(ngModel)]="nivel_preescolar">
+        <ion-segment-button value="preescolar1">
+          ( 3 - 5 años)
+        </ion-segment-button>
+        <ion-segment-button value="preescolar2">
+          ( 5 - 6 años)
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+      
+    <div [ngSwitch]="nivel_preescolar">
+      <ion-list *ngSwitchCase="'preescolar1'">
+          <!-- Nivel Preescolar de 3 a 5 años -->
+          <div padding-top>
+            <button ion-button icon-right block (click)="linkviga()">
+              &nbsp; Caminando por la viga de equilibrio
+            </button>
+          </div>
+
+          <div padding-top>
+            <button ion-button icon-right block (click)="linkavion()">
+              &nbsp; Juguemos al avioncito
+            </button>
+          </div>
+
+          <div padding-top>
+            <button ion-button icon-right block (click)="linkzigzag()">
+              &nbsp; Carrera de zigzag 
+            </button>
+          </div>
+
+      </ion-list>
+    
+      <ion-list *ngSwitchCase="'preescolar2'">
+          <!-- Nivel Preescolar de 5 a 6 años -->
+          <div padding-top>
+            <button ion-button icon-right block (click)="linkplatte()">
+              &nbsp; Platte - Tapping
+            </button>
+          </div>
+              
+      </ion-list>
+    </div>
+  </div>
+
+
+
+
+  <!-- Nivel Preescolar -->
+  <div  padding-top *ngIf="enable_primaria">
+    <div padding>
+      <ion-segment [(ngModel)]="nivel_primaria">
+        <ion-segment-button value="primaria1">
+          ( 6 - 10 años)
+        </ion-segment-button>
+        <ion-segment-button value="primaria2">
+          ( 10 - 12 años)
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+      
+    <div [ngSwitch]="nivel_primaria">
+      <ion-list *ngSwitchCase="'primaria1'">
+        <div padding-top>
+          <button ion-button icon-right block (click)="linkplatte()">
+            &nbsp; Platte - Tapping
+          </button>
+        </div>
+      </ion-list>
+    
+      <ion-list *ngSwitchCase="'primaria2'">
+        <div padding-top>
+          <button ion-button icon-right block (click)="linkflamenco()">
+            &nbsp; Prueba de equilibrio flamenco
+          </button>
+        </div>
+      </ion-list>
+    </div>
+
+  </div>
+
+
+  <div  padding-top *ngIf="enable_alllevel">       
+    <div padding-top>
+      <button ion-button icon-right block (click)="linkflamenco()">
+          &nbsp; Prueba de equilibrio flamenco
+      </button>
+    </div>
+  </div>
+
+</ion-content>

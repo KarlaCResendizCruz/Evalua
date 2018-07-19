@@ -1,15 +1,10 @@
 <ion-header>
   <ion-navbar color="primary">
-    <ion-title>Niveles Educativos</ion-title>
+    <h6 class="titulos">Evaluaciones<br> Nivel: {{nivel}}</h6>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  
-  <div text-center>
-    <h5>Evaluaciones <br> Nivel: {{nivel}}</h5>
-  </div>
-  
 
   <div padding-top>
     <button ion-button block (click)="linkcrecimiento()">
@@ -24,19 +19,19 @@
   </div>
 
   <div padding-top>
-    <button ion-button block (click)="linkcrecimiento()">
+    <button ion-button block (click)="linkbasicas()">
         &nbsp; Habilidades Básicas
     </button>
   </div>
 
   <div padding-top>
-    <button ion-button block (click)="linkcrecimiento()">
-        &nbsp; Habilidades Cordinativas
+    <button ion-button block (click)="linkcoordinativas()">
+        &nbsp; Habilidades Coordinativas
     </button>
   </div>
 
   <div padding-top>
-      <button ion-button block (click)="linkcrecimiento()">
+      <button ion-button block (click)="linkcondicionantes()">
           &nbsp; Habilidades Condicionantes
       </button>
   </div>

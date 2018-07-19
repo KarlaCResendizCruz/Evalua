@@ -1,20 +1,17 @@
 <ion-header>
   <ion-navbar color="primary">
-    <ion-title>Antropometría</ion-title>
+    <h6 class="titulos" *ngIf="eneable_preescolar">Antropometría <br> Nivel: Preescolar</h6>
+    <h6 class="titulos" *ngIf="eneable_alllevel">Antropometría <br> Nivel: {{nivel}}</h6>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
 
-  <div text-center>
-    <h5>Evaluaciónes de Antropometría <br> Nivel: {{nivel}}</h5>
-  </div>
-
   <!-- Nivel Preescolar -->
   <div  padding-top *ngIf="eneable_preescolar">
     <div padding>
-      <ion-segment [(ngModel)]="nivel_preescolar">
+      <ion-segment [(ngModel)]="nivel_preescolar" (ionChange)="cambiopreescolar()">
         <ion-segment-button value="preescolar1">
           ( 3 - 5 años)
         </ion-segment-button>
@@ -114,50 +111,6 @@
     </div>
 
   </div>
-
-
-<!-- 
-  <div padding-top>
-    <button ion-button icon-right block (click)="linkimc()">
-      &nbsp; Índice de masa corporal
-    </button>
-  </div>
-
-  <div padding-top>
-    <button ion-button icon-right block (click)="linkperimetro()">
-        &nbsp; Perímetro del brazo
-    </button>
-  </div>
-
-  <div padding-top>
-    <button ion-button icon-right block (click)="linkcintura()">
-        &nbsp; Relación perímetro de cintura-talla
-    </button>
-  </div>
-
-  <div padding-top>
-    <button ion-button icon-right block (click)="linkamb()">
-        &nbsp; Área muscular del brazo
-    </button>
-  </div>
-
-  <div padding-top>
-    <button ion-button icon-right block (click)="linkccadera()">
-        &nbsp; Índice cintura-cadera
-    </button>
-  </div>
-
-  <div padding-top>
-    <button ion-button icon-right block (click)="linkmasa()">
-        &nbsp; % Masa Grasa
-    </button>
-  </div>
-
-  <div padding-top>
-    <button ion-button icon-right block (click)="linksomatotipo()">
-        &nbsp; Somatotipo
-    </button>
-  </div> -->
 
     
 </ion-content>

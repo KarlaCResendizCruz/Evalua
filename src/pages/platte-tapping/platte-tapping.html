@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <h6 class="titulos">Evaluación: Platte-Tapping<br> Nivel: {{nivel}}</h6>
+  </ion-navbar>
+</ion-header>
+  
+<ion-content padding>
+
+<ion-card>
+  <ion-card-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-2></ion-col>
+        <ion-col col-8><img style="width:100%;" src="assets/imgs/platte_tapping/platte-tapping2.png"/></ion-col>
+        <ion-col col-2></ion-col>
+      </ion-row>
+    </ion-grid>
+  
+    <div text-justify>
+      <strong>Objetivo:</strong> Medir la velocidad de las extremidades superiores.<br> <br>
+      <strong>Evaluación <ion-icon (click)="protocolo()" color="primary"  name="eye"></ion-icon></strong><br><br>
+      <strong>Indicaciones:</strong> De acuerdo a la evaluación, califique con la siguiente rúbrica.
+      <br>
+
+      <table radio-group [(ngModel)]="rubrica">
+        <tr>
+          <th>Rúbrica</th>
+          <th>#</th>
+        </tr>
+        <tr>
+          <td style="width:95%">
+            Si no logra separar el movimiento de los brazos con respecto al cuerpo. No se te olvide anotar sus progresos, coloca la fecha y hora.                          
+          </td>
+          <td style="width:5%">
+            <ion-radio value="1"></ion-radio>
+          </td>
+        </tr>
+        <tr>
+          <td style="width:95%">
+            Si el alumno aísla el movimiento de los brazos. No se te olvide anotar sus progresos, coloca la fecha y hora.                       
+          </td>
+          <td style="width:5%">
+            <ion-radio value="2"></ion-radio>
+          </td>
+        </tr>
+      </table>
+
+      <div padding-top>
+        <button ion-button icon-right block (click)="calificar_rubrica()">
+          &nbsp; Verificar
+        </button>
+      </div>
+
+    </div> 
+  </ion-card-content>
+</ion-card>
+
+</ion-content>
+  

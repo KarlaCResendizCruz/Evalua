@@ -14,3 +14,58 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+.titulos{
+    color: white;
+}
+
+.modal-fullscreen {
+    .modal-wrapper {
+
+        position: absolute !important;
+        width: 90% !important;
+        height: 85% !important; 
+        top: 10% !important;
+        left: 5% !important;
+    }
+
+    
+}
+
+.cardheader{
+    background-color: dodgerblue;
+    color: white;
+}
+.grid{
+    padding: 0px;
+    margin: 0px;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    text-align: justify;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: justify;
+}
+
+tr:nth-child(even) {
+    background-color: #D8EBF3;
+}
+
+.nose{
+    color: black;
+}
+
+.label{
+    color: #000 !important;
+}
+
+.error{
+    color: red !important;
+}
+

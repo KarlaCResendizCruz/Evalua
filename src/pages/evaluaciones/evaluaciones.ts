@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CrecimientoPage } from '../crecimiento/crecimiento';
 import { AntropometriaPage } from '../antropometria/antropometria';
+import { BasicasPage } from '../basicas/basicas';
+import { CoordinativasPage } from '../coordinativas/coordinativas';
+import { CondicionantesPage } from '../condicionantes/condicionantes';
 
 
 
@@ -30,15 +33,24 @@ export class EvaluacionesPage {
    
   }
 
-
   linkcrecimiento(){
-
-    this.navCtrl.push(CrecimientoPage, {data:this.nivel});
+    this.navCtrl.push( CrecimientoPage, {data:this.nivel});
   }
 
   linkantropometria(){
-   
-    this.navCtrl.push(AntropometriaPage, {data:this.nivel});
+    this.navCtrl.push( AntropometriaPage, {data:this.nivel});
+  }
+
+  linkbasicas(){
+    this.navCtrl.push( BasicasPage, {data:this.nivel});
+  }
+
+  linkcoordinativas(){
+    this.navCtrl.push( CoordinativasPage, {data:this.nivel});
+  }
+
+  linkcondicionantes(){
+    this.navCtrl.push( CondicionantesPage, {data:this.nivel});
   }
 
 }

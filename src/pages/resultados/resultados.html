@@ -1,0 +1,31 @@
+<ion-content padding>
+  <ion-buttons end>
+      <button (click)="closeModal()"> X </button>
+  </ion-buttons>
+  <div text-center padding-vertical>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-2></ion-col>
+        <ion-col col-8>
+          <h4>{{ resultado.titulo }}</h4>
+          <h6> Nivel: {{ resultado.nivel}}</h6>
+          <img padding-vertical width="80%" src="assets/imgs/{{resultado.img}}"/>
+        </ion-col>
+        <ion-col col-2></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-1></ion-col>
+        <ion-col col-10>
+        <div text-center>
+        <strong>Resultado: </strong><div [innerHTML]="resultado.evaluacion"></div><br>
+        <strong>Recomendación: </strong> {{ resultado.recomendacion }}<br><br>
+        </div>
+        </ion-col>
+        <ion-col col-1></ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-buttons>
+        <button ion-button (click)="closeModal()"> Aceptar </button>
+    </ion-buttons>
+  </div>
+</ion-content>

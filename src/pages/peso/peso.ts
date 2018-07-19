@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { WeightProvider } from '../../providers/weight/weight';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -35,26 +35,31 @@ export class PesoPage {
      item:any = {
        gender:''
      }
+    
+    letra:string = '';
+    estado:string = '';
 
     constructor(
 
         public navCtrl: NavController, 
         public navParams: NavParams, 
         public weightprovider: WeightProvider,
-        public alertCtrl: AlertController,
-        private fbuilder:FormBuilder
+        private fbuilder:FormBuilder,
+        public modalCtrl: ModalController,
       ) {
-       this.crearform(); //Se llama a la función desde el inicio de mi vista
-       this.nivel = this.navParams.get('data');
+
+        this.nivel = this.navParams.get('data');
 
        if(this.nivel == "Preescolar"){
-         this.edades = [ 3, 4, 5, 6 ]
-       }
+        this.edades = [ 3, 4, 5, 6 ]
+        }
 
-       else if(this.nivel == "Primaria"){
-         this.edades = [ 6, 7, 8, 9, 10 ]
-       }
+        else if(this.nivel == "Primaria"){
+          this.edades = [ 6, 7, 8, 9, 10 ]
+        }
 
+       this.crearform(); //Se llama a la función desde el inicio de mi vista
+       
     }
 
     crearform() {
@@ -65,7 +70,7 @@ export class PesoPage {
           Validators.minLength(2),
           Validators.maxLength(6),
           Validators.pattern(/^[0-9]+(.[0-9]+)?$/)]],
-        years:[2,[Validators.required]],
+        years:[this.edades[0],[Validators.required]],
         meses:[0,[Validators.required]],
       });
     }
@@ -80,6 +85,14 @@ export class PesoPage {
           console.log(error);
         }
       )
+      if( this.datos.value.genero == 'femenino'){
+        this.letra = 'f';
+      }
+      else if( this.datos.value.genero == 'masculino'){
+        this.letra = 'm';
+      }
+
+
     }
 
     ionViewDidLoad(){
@@ -132,32 +145,85 @@ export class PesoPage {
       //Comparaciones , obtiene el resultado a mostrar dependiendo la desviación
       if ( final == -3){
         this.interpretacion = "Peso bajo severo";
+        this.estado = "desnutriciongrave";
       }
       if ( final == -2){
         this.interpretacion = "Peso bajo";
+        this.estado = "desnutricionmoderada";
       }
-      if ( final == -1 || final == 0){
+
+      if ( final == -1){
+        this.interpretacion = "Peso baja";
+        this.estado = "desnutricionleve";
+      }
+
+      if ( final == 0){
         this.interpretacion = "Peso normal";
+        this.estado = "pesonormal";
       }
+
       if ( final == 1){
         this.interpretacion = "Riesgo de sobrepeso";
+        this.estado = "pesonormal";
       }
       if ( final == 2){
         this.interpretacion = "Sobrepeso";
+        this.estado = "sobrepeso";
       }
       if ( final == 3){
-        this.interpretacion = "Problema de crecimiento";;
+        this.interpretacion = "Problema de crecimiento";
+        this.estado = "obesidad";
       }
       
-      //Alert con el resultado a mostrar
-      const alert = this.alertCtrl.create({
-        title: '¡ ' + this.interpretacion + " !",
-        subTitle: 'Este es el resultado',
-        buttons: ['Aceptar']
-      });
-      alert.present();
+      var resultados = {
+        nivel: this.nivel,
+        titulo: 'Evaluación: Peso',
+        evaluacion: this.interpretacion,
+        img: 'peso\\' + this.nivel.toLowerCase() + this.letra + '_' + this.estado + '.png',
+        recomendacion: 'Evaluar cada 4 semanas.',
+      };
+
+      var modalPage = this.modalCtrl.create('ResultadosPage', { data: resultados } ); 
+      modalPage.present(); 
+
+
       this.crearform(); //Se vuelve a llamar a la función del formulario.
 
     }
+
+    //Procolo
+    peso(){
+
+    var slider = [
+      {
+        titulo: "Peso",
+        texto: "<strong>Definición (a):</strong><br>Vector que tiene magnitud y dirección, y apunta aproximadamente hacia el centro de la Tierra.",
+        imagen: "assets/imgs/peso/peso_protocoloa.png",
+      },
+      {
+        titulo: "Peso",
+        texto: "<strong>Definición (b):</strong><br>Fuerza con la cual un cuerpo actúa sobre un punto de apoyo, originado por la aceleración de la gravedad, cuando actúa sobre la masa del cuerpo.",
+        imagen: "assets/imgs/peso/peso_protocolob.png",
+      },
+      {
+        titulo: "",
+        texto: "<strong>Instrumento:</strong><br>Báscula (balanza, pesa)<br><br> <strong>Unidad de medida:</strong><br>Kilogramo (kg)",
+        imagen: "assets/imgs/sprotocolo/book.png",
+      },
+      {
+        titulo: "",
+        texto: "<strong>Determinación:</strong><br>Persona en posición erecta, con los miembros superiores a ambos lados del cuerpo, las palmas y dedos de las manos rectos y extendidos hacia abajo, mirando hacia el frente, en bipedestación, con el peso distribuido equitativamente en ambos pies.(posición de atención antropométrica).",
+        imagen: "assets/imgs/sprotocolo/determinacion.png",
+      },
+      {
+        titulo: "",
+        texto: '<strong>Aplicación:</strong><br><strong>a)</strong> Descripción general del cuerpo, Valoración nutricional<br><strong>b)</strong> Tamaño de ropa y equipo de protección personal.<br><strong>c)</strong> Distribución de espacios de trabajo.',
+        imagen: "assets/imgs/sprotocolo/aplicacion.png",
+      }
+    ];
+
+    var modalPage = this.modalCtrl.create('SprotocoloPage', { data: slider } ); 
+    modalPage.present(); 
+  }
 
 }

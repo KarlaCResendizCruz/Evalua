@@ -1,0 +1,32 @@
+page-caminar {
+    .cardheader{
+        background-color: dodgerblue;
+        color: white;
+    }
+    .grid{
+        padding: 0px;
+        margin: 0px;
+    }
+
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        text-align: justify;
+    }
+    
+    td, th {
+        border: 1px solid #dddddd;
+        padding: 8px;
+        text-align: justify;
+    }
+    
+    tr:nth-child(even) {
+        background-color: #D8EBF3;
+    }
+    .nose{
+        color: black;
+    }
+
+
+}

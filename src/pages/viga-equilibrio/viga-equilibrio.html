@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <h6 class="titulos">Evaluación: Caminando por la viga de equilibrio <br> Nivel: {{nivel}}</h6>
+  </ion-navbar>
+</ion-header>
+  
+<ion-content padding>
+
+<ion-card>
+  <ion-card-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-2></ion-col>
+        <ion-col col-8><img style="width:100%;" src="assets/imgs/viga_equilibrio/viga-equilibrio.png"/></ion-col>
+        <ion-col col-2></ion-col>
+      </ion-row>
+    </ion-grid>
+  
+    <div text-justify>
+      <strong>Objetivo:</strong> Observar el equilibrio dinámico.<br> <br>
+      <strong>Evaluación <ion-icon (click)="protocolo()" color="primary"  name="eye"></ion-icon></strong><br><br>
+      <strong>Indicaciones::</strong> De acuerdo a la evaluación, seleccione el número de desequilibrios del alumno.<br>
+
+      <table radio-group [(ngModel)]="rubrica">
+        <tr>
+          <th>Rúbrica</th>
+          <th>#</th>
+        </tr>
+        <tr>
+          <td style="width:95%">
+            Más de 6 desequilibrios                             
+          </td>
+          <td style="width:5%">
+            <ion-radio value="1"></ion-radio>
+          </td>
+        </tr>
+        <tr>
+          <td style="width:95%">
+            De 4 a 5 desequilibrios                         
+          </td>
+          <td style="width:5%">
+            <ion-radio value="2"></ion-radio>
+          </td>
+        </tr>
+        <tr>
+          <td style="width:95%">
+            De 1 a 3 desequilibrios
+          </td>
+          <td style="width:5%">
+            <ion-radio value="3"></ion-radio>
+          </td>
+        </tr>
+      </table>
+
+      <div padding-top>
+        <button ion-button icon-right block (click)="calificar_rubrica()">
+          &nbsp; Verificar
+        </button>
+      </div>
+
+    </div> 
+  </ion-card-content>
+</ion-card>
+
+</ion-content>
+  

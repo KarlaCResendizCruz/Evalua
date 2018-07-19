@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <h6 class="titulos">Habilidades Condicionantes <br> Nivel: {{nivel}}</h6>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <!-- Nivel Preescolar -->
+  <div  padding-top *ngIf="enable_preescolar">
+    <div padding-top>
+      <button ion-button icon-right block (click)="linksalto()">
+        &nbsp; Salto horizontal
+      </button>
+    </div>
+
+    <div padding-top>
+      <button ion-button icon-right block (click)="linkvelocidad()">
+        &nbsp; Velocidad de agilidad
+      </button>
+    </div>
+
+    <div padding-top>
+      <button ion-button icon-right block (click)="linkflexion()">
+        &nbsp; Flexión del tronco con piernas juntas 
+      </button>
+    </div>
+  </div>
+
+
+
+  <div  padding-top *ngIf="enable_primaria">
+    <div padding>
+      <ion-segment [(ngModel)]="nivel_primaria">
+        <ion-segment-button value="primaria1">
+          ( 6 - 10 años)
+        </ion-segment-button>
+        <ion-segment-button value="primaria2">
+          ( 10 - 12 años)
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+      
+    <div [ngSwitch]="nivel_primaria">
+      <ion-list *ngSwitchCase="'primaria1'">
+
+        <div padding-top>
+          <button ion-button icon-right block (click)="linkcourse()">
+            &nbsp; Course Navette
+          </button>
+        </div>
+
+        <div padding-top>
+          <button ion-button icon-right block (click)="linksalto()">
+            &nbsp; Salto horizontal
+          </button>
+        </div>
+    
+        <div padding-top>
+          <button ion-button icon-right block (click)="linkvelocidad()">
+            &nbsp; Velocidad de agilidad
+          </button>
+        </div>
+    
+        <div padding-top>
+          <button ion-button icon-right block (click)="linkflexion()">
+            &nbsp; Flexión del tronco con piernas juntas 
+          </button>
+        </div>
+
+      </ion-list>
+    
+      <ion-list *ngSwitchCase="'primaria2'">
+        <div padding-top>
+          <button ion-button icon-right block (click)="linkflamenco()">
+            &nbsp; Prueba de equilibrio flamenco
+          </button>
+        </div>
+      </ion-list>
+    </div>
+
+  </div>
+
+
+  <div  padding-top *ngIf="enable_alllevel">       
+    <div padding-top>
+      <button ion-button icon-right block (click)="linkflamenco()">
+          &nbsp; Prueba de equilibrio flamenco
+      </button>
+    </div>
+  </div>
+
+</ion-content>

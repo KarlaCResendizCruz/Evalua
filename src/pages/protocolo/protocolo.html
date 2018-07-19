@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <h6 class="titulos"> Nivel: {{ protocolo.nivel}}</h6>
+    <ion-buttons end>
+      <button ion-button (click)="closeModal()"> X </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-card>
+        <ion-card-header class="cardheader">
+            {{ protocolo.titulo }}
+        </ion-card-header>
+        <ion-card-content >
+            <div text-justify padding-vertical>
+                <strong>Material y/o instalación: </strong><div [innerHTML]= "protocolo.material"></div> <br>
+                <strong>Recomendación: </strong> <div [innerHTML]="protocolo.recomendaciones"></div><br>
+                <strong>Procedimiento: </strong> <div [innerHTML]="protocolo.procedimiento"></div><br>
+                <ion-grid>
+                    <ion-row>
+                        <ion-col col-2></ion-col>
+                        <ion-col col-8><img width="90%" src="assets/imgs/{{protocolo.img}}"/></ion-col>
+                        <ion-col col-2></ion-col>
+                    </ion-row>
+                </ion-grid><br>
+                <strong>Observación pedagógica: </strong><div [innerHTML]="protocolo.observacion"></div><br>
+            </div>
+        </ion-card-content>
+    </ion-card>
+</ion-content>
