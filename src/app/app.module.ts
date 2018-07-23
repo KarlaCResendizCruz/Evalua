@@ -13,6 +13,8 @@ import { AmbProvider } from '../providers/amb/amb';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { OlvidastecontPage } from '../pages/olvidastecont/olvidastecont';
+import { RegistroPage } from '../pages/registro/registro';
 import { NivelesPage } from '../pages/niveles/niveles';
 import { EvaluacionesPage } from '../pages/evaluaciones/evaluaciones';
 import { ImcPage } from '../pages/imc/imc';
@@ -43,6 +45,7 @@ import { CondicionantesPage } from '../pages/condicionantes/condicionantes';
 import { SaltoHorizontalPage } from '../pages/salto-horizontal/salto-horizontal';
 import { VelocidadAgilidadPage } from '../pages/velocidad-agilidad/velocidad-agilidad';
 import { FlexionTroncoPage } from '../pages/flexion-tronco/flexion-tronco';
+
 
 
 @NgModule({
@@ -78,7 +81,9 @@ import { FlexionTroncoPage } from '../pages/flexion-tronco/flexion-tronco';
     CondicionantesPage,
     SaltoHorizontalPage,
     VelocidadAgilidadPage,
-    FlexionTroncoPage
+    FlexionTroncoPage,
+    OlvidastecontPage,
+    RegistroPage
   ],
   imports: [
     BrowserModule,
@@ -119,7 +124,9 @@ import { FlexionTroncoPage } from '../pages/flexion-tronco/flexion-tronco';
     CondicionantesPage,
     SaltoHorizontalPage,
     VelocidadAgilidadPage,
-    FlexionTroncoPage
+    FlexionTroncoPage,
+    OlvidastecontPage,
+    RegistroPage
   ],
   providers: [
     StatusBar,

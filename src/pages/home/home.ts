@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { NivelesPage } from '../niveles/niveles';
+import { OlvidastecontPage } from '../olvidastecont/olvidastecont';
+import { RegistroPage } from '../registro/registro';
 
 
 @Component({
@@ -15,6 +17,14 @@ export class HomePage {
 
   linkniveles(){
     this.navCtrl.push(NivelesPage);
+  }
+
+  linkolvidastecont(){
+    this.navCtrl.push(OlvidastecontPage);
+  }
+
+  linkregistro(){
+    this.navCtrl.push(RegistroPage);
   }
 
   graficar(){

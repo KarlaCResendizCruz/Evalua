@@ -6,45 +6,41 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Recuperar contraseña</ion-title>
+  <ion-navbar color= "home">
+    <ion-title></ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content padding class="colorbackazul">
+  <div text-center class="color_titulo_contraseña">
+      <img class="tam" src="assets/olvidastecont/Recuperarcont.png"><br>
+      ¿Olvidaste tu contraseña?
+  </div> 
   <ion-grid>
     <ion-row>
       <ion-col col-12>
-        <p>Ingresa los datos para recuperar</p>
+        <div text-center><p class="textop">Ingresa los datos para recuperar</p>
+        </div>
       </ion-col>
     </ion-row>
     <ion-row align-items-center>
         <ion-col col-12>
-            <ion-list>
-
-                <ion-item>
-                    <ion-label stacked>Correo</ion-label>
-                    <ion-input type="text"></ion-input>
-                </ion-item>
-
-                <ion-item>
-                    <ion-label stacked>Ingresa el código</ion-label>
-                    <ion-input type="text"></ion-input>
-                </ion-item>
-              
-            </ion-list>
+          <div text-center>
+            <ion-item class="border_input">
+              <ion-label>e-mail</ion-label>
+              <ion-input type="text" class="in" value=""></ion-input>
+            </ion-item>
+          </div>
         </ion-col>
         <ion-col col-12>
-            <button ion-button color= "azulEdu">
+          <div text-center><br><br>
+            <button ion-button color= "naranjaEdu" class="radio">
               Enviar 
             </button>
+          </div>
         </ion-col>
       </ion-row>
   </ion-grid>
-
-
-
 </ion-content>

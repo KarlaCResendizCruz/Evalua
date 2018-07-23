@@ -1,8 +1,86 @@
-<ion-content padding class="back" >
+<div id="custom-overlay" [style.display]="splash ? 'flex': 'none'">
+  <div class="flb">
+    <div class="Aligner-item Aligner-item--top"></div>
+    <img src="assets/home/Evalua.png">
+    <div class="Aligner-item Aligner-item--bottom"></div>
+  </div>
+</div> 
+
+<ion-header>
+  <ion-navbar color= "home">
+    <ion-title>
+      <div text-center>
+          Bienvenido
+      </div>
+    </ion-title>
+  </ion-navbar>
+</ion-header> 
+
+<ion-content  padding class="colorbackazul">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12>
+            <div text-center class="color_titulo_home"> 
+                <img class="tam_home" src="assets/home/Google.png"><br>
+                Acceder con google
+            </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12><br><br><br>
+            <ion-item class="border_input">
+              <ion-label>e-mail</ion-label>
+              <ion-input type="text" value=""></ion-input>
+            </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col col-12>
+              <ion-item class="border_input"> 
+                <ion-label>Contraseña</ion-label>
+                <ion-input type="text" value=""></ion-input>
+              </ion-item>
+            <div text-center>
+              <button ion-button class="color_titulo2_home" clear (click)="linkolvidastecont()">Olvide mi contraseña</button>
+            </div>
+          </ion-col>
+        </ion-row>
+      <ion-row>
+          <ion-col col-12>
+            <div text-center>
+              <button ion-button color= "naranjaEdu" class="radio_home" (click)="linkniveles()">
+                Inicia sesión
+              </button>
+            </div>
+          </ion-col>
+          <ion-col col-12>
+            <div text-center>
+              <button ion-button color= "azulEdu" class="radio_home" (click)="linkregistro()">
+                  &nbsp; Crear nueva cuenta 
+                </button>
+              </div>
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+  </ion-content>
 
 
-  <button ion-button icon-right block class="start" (click)="linkniveles()">
-    <ion-icon name="md-paper-plane"></ion-icon>
-    &nbsp; Comenzar
-  </button>
-</ion-content>
+  <!--
+<ion-content padding>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12>
+          <p>Columna1</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col col-9>
+            <p>Columna1</p>
+          </ion-col>
+          <ion-col col-3>
+            <p>Columna2</p>
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+  </ion-content>
+--> 

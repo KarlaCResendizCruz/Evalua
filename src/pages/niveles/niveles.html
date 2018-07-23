@@ -1,4 +1,60 @@
 <ion-header>
+  <ion-navbar  color= "gris">
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="colorback_gris"> 
+  <div text-center class="color_titulo_niveles">Niveles Educativos
+      <br><br><img class="tam" src="assets/niveles/Niveles.png">
+    </div> 
+
+<ion-grid><br>
+  <ion-row align-items-center>
+    <ion-col col-6>
+      <div text-center>
+          <img src="assets/niveles/Preescolar.png" (click)="linkevaluaciones('Preescolar')">
+      </div>
+    </ion-col>
+    <ion-col col-6>
+          <div text-center>
+              <img src="assets/niveles/Primaria.png" (click)="linkevaluaciones('Primaria')">
+          </div>
+    </ion-col>
+  </ion-row>
+  <ion-row align-items-center><br><br><br>
+      <ion-col col-6>
+          <div text-center>
+              <img src="assets/niveles/Secundaria.png" (click)="linkevaluaciones('Secundaria')">
+              <!-- <button color= "naranjaEdu" ion-button clear (click)="linksecundaria()">Secundaria</button>-->
+          </div>
+      </ion-col>
+      <ion-col col-6>
+          <div text-center>
+              <img src="assets/niveles/Preparatoria.png" (click)="linkevaluaciones('Preparatoria')">
+              <!-- <button color= "naranjaEdu" ion-button clear (click)="linkpreparatoria()">Preparatoria</button>-->
+          </div>
+      </ion-col>
+    </ion-row>
+</ion-grid>
+</ion-content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+<ion-header>
   <ion-navbar color="primary">
     <h6 class="titulos">Niveles Educativos</h6>
   </ion-navbar>
@@ -35,3 +91,5 @@
   </div>
   
 </ion-content>
+
+-->

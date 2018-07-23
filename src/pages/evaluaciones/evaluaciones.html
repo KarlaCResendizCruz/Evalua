@@ -1,10 +1,42 @@
 <ion-header>
-  <ion-navbar color="primary">
+  <ion-navbar color= "home">
     <h6 class="titulos">Evaluaciones<br> Nivel: {{nivel}}</h6>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="colorback_pree">
+<ion-grid>
+  <ion-row align-items-center>
+    <ion-col col-6>
+            <img src="assets/evaluaciones/Crecimiento1.png" (click)="linkcrecimiento()">
+    </ion-col>
+    <ion-col col-6>
+        <img src="assets/evaluaciones/Antropometria1.png" (click)="linkantropometria()">
+    </ion-col>
+  </ion-row>
+  <ion-row align-items-center>
+      <ion-col col-6>
+          <img src="assets/evaluaciones/HabilidadesBasicas1.png" (click)="linkbasicas()">
+      </ion-col>
+      <ion-col col-6>
+          <img src="assets/evaluaciones/HabilidadesCoordinativas1.png" (click)="linkcoordinativas()">
+      </ion-col>
+    </ion-row>
+    <ion-row align-items-center>
+      <ion-col col-3>
+      </ion-col>
+      <ion-col col-6>
+          <img src="assets/evaluaciones/HabilidadesCoondicionantes1.png" (click)="linkcondicionantes()">
+      </ion-col>
+      <ion-col col-3>
+      </ion-col>
+    </ion-row>
+</ion-grid>
+</ion-content>
+
+
+<!--
+<ion-content padding class="colorback_pree">
 
   <div padding-top>
     <button ion-button block (click)="linkcrecimiento()">
@@ -16,7 +48,7 @@
     <button ion-button block (click)="linkantropometria()">
       &nbsp; Antropometria
     </button>
-  </div>
+  </div> 
 
   <div padding-top>
     <button ion-button block (click)="linkbasicas()">
@@ -37,3 +69,4 @@
   </div>
 
 </ion-content>
+-->

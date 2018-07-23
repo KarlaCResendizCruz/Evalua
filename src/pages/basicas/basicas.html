@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar color="primary">
+  <ion-navbar color= "home">
     <h6 class="titulos">Habilidades Básicas <br> Nivel: {{nivel}}</h6>
   </ion-navbar>
 </ion-header>
@@ -8,9 +8,9 @@
 <ion-content padding>
 
   <!-- Nivel Preescolar -->
-  <div  padding-top *ngIf="eneable_preescolar">
+  <div  padding-top *ngIf="eneable_preescolar"> 
     <div padding>
-      <ion-segment [(ngModel)]="nivel_preescolar" (ionChange)="cambiopreescolar()">
+      <ion-segment color= "naranjaEdu" [(ngModel)]="nivel_preescolar" (ionChange)="cambiopreescolar()">
         <ion-segment-button value="preescolar1">
           ( 3 - 5 años)
         </ion-segment-button>
@@ -23,7 +23,35 @@
     <div [ngSwitch]="nivel_preescolar">
       <ion-list *ngSwitchCase="'preescolar1'">
           <!-- Nivel Preescolar de 3 a 5 años -->
-          <div padding-top>
+
+
+
+
+          <ion-row align-items-center>
+            <ion-col col-6>
+                    <img src="assets/hbasicas/Caminar2.png" (click)="linkcaminar()">
+            </ion-col>
+            <ion-col col-6>
+                <img src="assets/hbasicas/FlexionTroncoFrente2.png" (click)="linkflexionfrente()">
+            </ion-col>
+          </ion-row>
+          <ion-row align-items-center>
+              <ion-col col-6>
+                  <img src="assets/hbasicas/RecepcionBalon2.png" (click)="linkrecepcion()">
+              </ion-col>
+              <ion-col col-6>
+                  <img src="assets/hbasicas/LanzamientoPrecision2.png" (click)="linkprecision()">
+              </ion-col>
+            </ion-row>
+
+
+
+
+
+
+
+
+          <!--<div padding-top>
             <button ion-button icon-right block (click)="linkcaminar()">
               &nbsp; Caminar
             </button>
@@ -45,16 +73,36 @@
             <button ion-button icon-right block (click)="linkprecision()">
               &nbsp; Lanzamiento de precisión 
             </button>
-          </div>
+          </div>-->
       </ion-list>
     
       <ion-list *ngSwitchCase="'preescolar2'">
           <!-- Nivel Preescolar de 5 a 6 años -->
-          <div padding-top>
+
+          <ion-row align-items-center>
+            <ion-col col-6>
+                <img src="assets/hbasicas/LanzamientoPrecision2.png" (click)="linkprecision()">
+            </ion-col>
+            <ion-col col-6>
+                <img src="assets/hbasicas/SaltoObstaculo2.png" (click)="linkobstaculo()">
+            </ion-col>
+          </ion-row>
+          <ion-row align-items-center>
+            <ion-col col-3>
+            </ion-col>
+            <ion-col col-6>
+                <img src="assets/hbasicas/LanzamientoPelota2.png" (click)="linklpelota()">
+            </ion-col>
+            <ion-col col-3>
+            </ion-col>
+          </ion-row>
+
+
+          <!--<div padding-top>
             <button ion-button icon-right block (click)="linkprecision()">
               &nbsp; Lanzamiento de precisión 
             </button>
-          </div>
+          </div> 
                
           <div padding-top>
             <button ion-button icon-right block (click)="linkobstaculo()">
@@ -66,14 +114,36 @@
             <button ion-button icon-right block (click)="linklpelota()">
                 &nbsp; Lanzamiento de la pelota
             </button>
-          </div>
+          </div>-->
       </ion-list>
     </div>
   </div>
 
 
-  <div  padding-top *ngIf="eneable_alllevel">       
-    <div padding-top>
+  <div  padding-top *ngIf="eneable_alllevel">  
+    
+
+      <ion-row align-items-center>
+          <ion-col col-6>
+              <img src="assets/hbasicas/LanzamientoPelota2.png" (click)="linklpelota()">
+          </ion-col>
+          <ion-col col-6>
+              <img src="assets/hbasicas/SaltoObstaculo2.png" (click)="linkobstaculo()">
+          </ion-col>
+        </ion-row>
+        <ion-row align-items-center>
+          <ion-col col-3>
+          </ion-col>
+          <ion-col col-6>
+              <img src="assets/hbasicas/LanzamientoPrecision2.png" (click)="linkprecision()">
+          </ion-col>
+          <ion-col col-3>
+          </ion-col>
+      </ion-row>
+
+    
+
+    <!--<div padding-top>
       <button ion-button icon-right block (click)="linkobstaculo()">
           &nbsp; Salto de un obstaculo
       </button>
@@ -89,7 +159,7 @@
       <button ion-button icon-right block (click)="linkprecision()">
         &nbsp; Lanzamiento de precisión 
       </button>
-    </div>
+    </div>-->
 
   </div>
 </ion-content>
